@@ -1,0 +1,12 @@
+{
+  "name": "iamjada/328/diner",
+  "authors": [
+    {
+      "name": "Jada Senebouttarath",
+      "email": "jsenebouttarath@mail.greenriver.edu"
+    }
+  ],
+  "require": {
+    "bcosca/fatfree-core": "dev-master"
+  }
+}
