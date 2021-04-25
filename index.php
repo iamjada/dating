@@ -1,6 +1,8 @@
 <?php
-
-// https://github.com/iamjada/dating
+/**
+ * Jada Senebouttarath
+ * https://github.com/iamjada/dating
+ */
 // This is my controller for the dating project
 
 // Turn on error reporting
