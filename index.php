@@ -71,7 +71,5 @@ $f3->route('GET /summary', function () {
     echo $view->render('views/summary.html');
 });
 
-
-
 // run fat-free
 $f3->run();
