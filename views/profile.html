@@ -44,8 +44,12 @@
             <div class="col">
                 <div class="form-group">
                     <label class="h6" for="email">Email</label>
-                    <input type="text" class="form-control" id="email" name="email">
+                    <input type="text" class="form-control" id="email" value="{{ @userEmail }}" name="email">
                 </div>
+                <!-- display an error message if there is one -->
+                <check if="{{ isset(@errors['email']) }}">
+                    <span class="err">{{ @errors['email'] }}</span>
+                </check>
                 <div class="form-group">
                     <label class="h6" for="state">State</label>
                     <select class="form-control" id="state" name="state">

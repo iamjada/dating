@@ -21,14 +21,21 @@ function validAge($age)
 {
     return !empty(is_numeric($age)) && $age >= 18 && $age <= 118;
 }
+
 // validPhone checks to see that a phone number is valid
 function validPhone($phone)
 {
+    /*
+    if (preg_match('/^[0-9]{3}-[0-9]{3}-[0-9]{4}$/', $phone)) {
+        return $phone;
+    } else {
+        return !empty($phone);
+    }
+    */
     return !empty(preg_match("/^[0-9]{3}-[0-9]{3}-[0-9]{4}$/", $phone));
 }
 // validEmail checks to see that an email address is valid
-
-function isValidEmail($email){
+function validEmail($email){
     //$reg = '/^[\w!#$%&\'*+\/=?^`{|}~.-]+@[\w]+\.[\w]+$/';
     // reference : https://stackoverflow.com/questions/13719821/email-validation-using-regular-expression-in-php
     //return filter_var($email, FILTER_VALIDATE_EMAIL);
@@ -39,28 +46,28 @@ function isValidEmail($email){
 // validOutdoor checks each selected indoor interest against a list of valid options
 function validOutdoor($outdoor)
 {
-    $valid = false;
-    foreach ($outdoor as $selected) {
-        if (in_array($selected, $this->_dataLayer->getOutdoor())) {
-            $valid = true;
-        }else {
-            $valid = false;
+    $validOutdoor = getOutdoor();
+
+    foreach ($outdoor as $userOutdoorChoices) {
+        if (!in_array($userOutdoorChoices, $validOutdoor)) {
+            return false;
         }
     }
-    return $valid;
+    //All choices are valid
+    return true;
 
 }
 
 // validIndoor checks each selected indoor interest against a list of valid options
 function validIndoor($indoor)
 {
-    $valid = false;
-    foreach ($indoor as $selected) {
-        if (in_array($selected, $this->_dataLayer->getIndoor())) {
-            $valid = true;
-        }else {
-            $valid = false;
+    $validIndoor = getIndoor();
+
+    foreach ($indoor as $userIndoorChoices) {
+        if (!in_array($userIndoorChoices, $validIndoor)) {
+            return false;
         }
     }
-    return $valid;
+    //All choices are valid
+    return true;
 }

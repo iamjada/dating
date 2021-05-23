@@ -47,7 +47,7 @@
                 <!-- first name -->
                 <div class="form-group">
                     <label class="h6" for="fName">First Name</label>
-                    <input type="text" class="form-control" name="fName" value="{{ @userFName }}" id="fName">
+                    <input type="text" class="form-control" name="fName" value="{{ @userFName }}" id="fName" placeholder="First name">
                 </div>
                 <!-- display an error message if there is one -->
                 <check if="{{ isset(@errors['fName']) }}">
@@ -57,37 +57,46 @@
                 <!-- last name -->
                 <div class="form-group">
                     <label class="h6" for="lName">Last Name</label>
-                    <input type="text" class="form-control" name="lName" value="{{ @userLName }}" id="lName">
+                    <input type="text" class="form-control" name="lName" value="{{ @userLName }}" id="lName" placeholder="Last name">
                 </div>
                 <check if="{{ isset(@errors['lName']) }}">
                     <span class="err">{{ @errors['lName'] }}</span>
                 </check>
+
                 <!-- age -->
                 <div class="form-group">
                     <label class="h6" for="age">Age</label>
-                    <input type="text" class="form-control" name="age" value="{{ @userAge}}" id="age">
+                    <input type="text" class="form-control" name="age" value="{{ @userAge}}" id="age" placeholder="Age 18+">
                 </div>
                 <check if="{{ isset(@errors['age']) }}">
                     <span class="err">{{ @errors['age'] }}</span>
                 </check>
-                <!-- male radio button -->
+                <!-- gender radio button -->
                 <h6>Gender</h6>
-                <div class="form-check form-check-inline">
-                    <input type="radio" class="form-check-input" name="gender" id="genMale" value="{{ @userGender }}">
-                    <label class="form-check-label" for="genMale">Male</label>
+                    <repeat group="{{ @genders }}" value="{{ @gender }}">
+                        <label><input type="radio" name="gender"
+                                      id="{{ @gender }}" value="{{ @gender }}">
+                            <check if="{{ @gender == @userGender }}">
+                                checked="checked"</check> {{ ucfirst(@gender) }}
+                        </label>
+                    </repeat>
+                    <!--
+                    <input type="radio" class="form-check-input" name="gender" id="gender" value="{{ @userGender }}">
+                    <label class="form-check-label" for="gender">Male</label>
                 </div>
-                <!-- female radio button -->
+
                 <div class="form-check form-check-inline">
-                    <input type="radio" class="form-check-input" name="gender" id="genFemale" value="{{ @userGender }}">
-                    <label class="form-check-label" for="genFemale">Female</label>
+                    <input type="radio" class="form-check-input" name="gender" id="gender" value="{{ @userGender }}">
+                    <label class="form-check-label" for="gender">Female</label>
                 </div>
+                    -->
                 <!-- phone number -->
                 <div class="form-group mt-3">
-                    <label class="h6" for="phoneNum">Phone Number</label>
-                    <input type="text" class="form-control" id="phoneNum" value="{{ @userPhone }}" name="phoneNum">
+                    <label class="h6" for="phone">Phone Number</label>
+                    <input type="text" class="form-control" id="phone" value="{{ @userPhone }}" placeholder="Format: 111-111-1111">
                 </div>
-                <check if="{{ isset(@errors['phoneNum']) }}">
-                    <span class="err">{{ @errors['phoneNum'] }}</span>
+                <check if="{{ isset(@errors['phone']) }}">
+                    <span class="err">{{ @errors['phone'] }}</span>
                 </check>
 
             </div>

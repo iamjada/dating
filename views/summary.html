@@ -40,7 +40,7 @@
                 <li class="list-group-item">Name: {{ @SESSION.fName }} {{ @SESSION.lName }}</li>
                 <li class="list-group-item">Gender: {{ @SESSION.gender }}</li>
                 <li class="list-group-item">Age: {{ @SESSION.age }}</li>
-                <li class="list-group-item">Phone: {{ @SESSION.phoneNum }}</li>
+                <li class="list-group-item">Phone: {{ @SESSION.phone }}</li>
                 <li class="list-group-item">Email: {{ @SESSION.email }}</li>
                 <li class="list-group-item">State: {{ @SESSION.state }}</li>
                 <li class="list-group-item">Seeking: {{ @SESSION.seeking }}</li>
@@ -49,14 +49,14 @@
         </div>
         <div class="col">
             <div class="container">
-                <img class="rounded profile_img" src="images/default-pic.png" alt="profile-picture">
+                <img class="rounded" src="images/profile-pic.png" alt="profile picture">
                 <h4>Biography</h4>
                 <p class="text-center">{{ @SESSION.bio }}.</p>
             </div>
         </div>
     </div>
     <div class="row column_row d-flex justify-content-center">
-        <a class="btn btn-primary rounded" href="">Contact Me!</a>
+        <a class="btn btn-primary rounded">Contact Me!</a>
     </div>
 </div>
 </body>

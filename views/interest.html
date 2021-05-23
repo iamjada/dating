@@ -42,9 +42,18 @@
         <div class="row column_row border-top pt-4">
             <div class="col">
                 <h6>In-door Interest</h6>
-                <div class="container mb-4">
                     <div class="row mb-1">
-                        <div class="form-check form-check-inline col">
+                        <repeat group="{{ @indoorints }}" value="{{ @indoorint }}">
+                            <label class="col-2"><input type="checkbox" name="indoor[]" value="{{ @indoorint }}"
+                            > {{ @indoorint }}</label>
+                        </repeat>
+                    </div>
+                    <check if="{{ isset(@errors['indoor']) }}">
+                        <span class="err">{{ @errors['indoor'] }}</span>
+                    </check>
+                </div>
+                            <!--
+                            <div class="form-check form-check-inline col">
                             <input class="form-check-input" type="checkbox" name="interest[]" id="tv" value="Tv">
                             <label class="form-check-label" for="tv">Tv</label>
                         </div>
@@ -79,10 +88,21 @@
                             <label class="form-check-label" for="games">Video Games</label>
                         </div>
                     </div>
-                </div>
+                     -->
                 <h6>Out-door Interest</h6>
                 <div class="container">
                     <div class="row mb-1">
+                        <repeat group="{{ @outdoorints }}" value="{{ @outdoorint }}">
+                            <label class="col-2"><input type="checkbox"
+                                                        name="outdoor[]"
+                                                        value="{{ @outdoorint }}"
+                            > {{ @outdoorint }}</label>
+                        </repeat>
+                    </div>
+                    <check if="{{ isset(@errors['outdoor']) }}">
+                        <span class="err">{{ @errors['outdoor'] }}</span>
+                    </check>
+                        <!--
                         <div class="form-check form-check-inline col">
                             <input class="form-check-input" type="checkbox" name="interest[]" id="hiking" value="Hiking">
                             <label class="form-check-label" for="hiking">Hiking</label>
@@ -109,10 +129,11 @@
                             <input class="form-check-input" type="checkbox" name="interest[]" id="climbing" value="Climbing">
                             <label class="form-check-label" for="climbing">Climbing</label>
                         </div>
-                    </div>
-                </div>
-            </div>
+                        -->
+
+                </div><!--div container-->
         </div>
+
         <div class="row column_row d-flex justify-content-end">
             <input type="submit" class="form-control btn btn-primary rounded" id="btn_size" value="Next >">
         </div>

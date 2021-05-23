@@ -1,5 +1,11 @@
 <?php
 
+function getGender()
+{
+    return array('Male', 'Female','Non-Binary', 'Other');
+}
+
+
 // indoor interests
 function getIndoor()
 {
