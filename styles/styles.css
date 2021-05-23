@@ -1,3 +1,9 @@
+/* error */
+.err {
+    color: darkred;
+    padding-left: 1em;
+}
+
 /* Left Div */
 .left{
     padding-left: 10px;
