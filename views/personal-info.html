@@ -44,34 +44,54 @@
         </div>
         <div class="row column_row border-top pt-4">
             <div class="col-7">
-
+                <!-- first name -->
                 <div class="form-group">
                     <label class="h6" for="fName">First Name</label>
-                    <input type="text" class="form-control" name="fName" id="fName">
+                    <input type="text" class="form-control" name="fName" value="{{ @userFName }}" id="fName">
                 </div>
+                <!-- display an error message if there is one -->
+                <check if="{{ isset(@errors['fName']) }}">
+                    <span class="err">{{ @errors['fName'] }}</span>
+                </check>
+
+                <!-- last name -->
                 <div class="form-group">
                     <label class="h6" for="lName">Last Name</label>
-                    <input type="text" class="form-control" name="lName" id="lName">
+                    <input type="text" class="form-control" name="lName" value="{{ @userLName }}" id="lName">
                 </div>
+                <check if="{{ isset(@errors['lName']) }}">
+                    <span class="err">{{ @errors['lName'] }}</span>
+                </check>
+                <!-- age -->
                 <div class="form-group">
                     <label class="h6" for="age">Age</label>
-                    <input type="text" class="form-control" name="age" id="age">
+                    <input type="text" class="form-control" name="age" value="{{ @userAge}}" id="age">
                 </div>
+                <check if="{{ isset(@errors['age']) }}">
+                    <span class="err">{{ @errors['age'] }}</span>
+                </check>
+                <!-- male radio button -->
                 <h6>Gender</h6>
                 <div class="form-check form-check-inline">
                     <input type="radio" class="form-check-input" name="gender" id="genMale" value="Male">
                     <label class="form-check-label" for="genMale">Male</label>
                 </div>
+                <!-- female radio button -->
                 <div class="form-check form-check-inline">
                     <input type="radio" class="form-check-input" name="gender" id="genFemale" value="Female">
                     <label class="form-check-label" for="genFemale">Female</label>
                 </div>
+                <!-- phone number -->
                 <div class="form-group mt-3">
                     <label class="h6" for="phoneNum">Phone Number</label>
-                    <input type="text" class="form-control" id="phoneNum" name="phoneNum">
+                    <input type="text" class="form-control" id="phoneNum" value="{{ @userPhone }}" name="phoneNum">
                 </div>
+                <check if="{{ isset(@errors['phoneNum']) }}">
+                    <span class="err">{{ @errors['phoneNum'] }}</span>
+                </check>
 
             </div>
+            <!-- note -->
             <div class="col-5 mt-4">
                 <div class="container border rounded pt-2 pb-2" id="bg_personal">
                     <p class="m-2 text-center"><strong>Note:</strong> All information entered is protected by our <a
@@ -81,6 +101,7 @@
             </div>
         </div>
         <br>
+        <!-- submit -->
         <div class="row column_row d-flex justify-content-end">
             <input type="submit" class="form-control btn btn-primary rounded" id="btn_size" value="Next >">
         </div>
