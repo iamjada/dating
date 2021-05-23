@@ -9,19 +9,26 @@
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
+// Require autoload file
+require_once('vendor/autoload.php');
+
 //Start a session
 session_start();
 
-// Require autoload file
-require_once('vendor/autoload.php');
-require_once('model/validation.php');
-require_once('model/data-layer.php');
-
-
 // instantiate fat-free
 $f3 = Base::instance();
+$con = new Controller($f3);
 
-// define default route
+//require_once('model/validation.php');
+//require_once('model/data-layer.php');
+
+//Define default route
+$f3->route('GET /', function(){
+
+    $GLOBALS['con']->home();
+});
+
+/*
 $f3->route('GET /', function(){
 
     // Display the home page
@@ -29,8 +36,16 @@ $f3->route('GET /', function(){
     echo $view->render('views/home.html'); // using view object to display the view page
 
 });
+*/
+// define personal-info page route
+$f3->route('GET /personal', function(){
+    // Display the Personal info page
+    $view = new Template();
+    echo $view->render('views/personal-info.html');
 
-// personal info
+});
+
+/*personal info
 $f3->route('GET|POST /personal', function ($f3) {
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -39,15 +54,21 @@ $f3->route('GET|POST /personal', function ($f3) {
         $_SESSION['lName'] = $_POST['lName'];
         $_SESSION['age'] = $_POST['age'];
         $_SESSION['gender'] = $_POST['gender'];
-        $_SESSION['phone'] = $_POST['phone'];
+        $_SESSION['phoneNum'] = $_POST['phoneNum'];
 
-        //If name is valid, store data
-        //validate first name
+
         if (validFName($_POST['fName'])) {
-            $_SESSION['fName'] = $_POST['fName'];
+            $_SESSION['fName'] = $userFName;
         } //Otherwise, set an error variable in the hive
         else {
-            $f3->set('errors["fName"]', 'Please enter a Name');
+            $f3->set('errors["fName"]', 'Please enter a first name');
+        }
+
+        if (validLName($_POST['lName'])) {
+            $_SESSION['lName'] = $_POST['lName'];
+        } //Otherwise, set an error variable in the hive
+        else {
+            $f3->set('errors["lName"]', 'Please enter a last name');
         }
 
         header('location: profile');
@@ -57,6 +78,7 @@ $f3->route('GET|POST /personal', function ($f3) {
     $view = new Template();
     echo $view->render('views/personal-info.html');
 });
+*/
 
 // profile.html page
 $f3->route('GET|POST /profile', function () {
