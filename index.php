@@ -37,7 +37,7 @@ $f3->route('GET|POST /personal', function () {
         $_SESSION['age'] = $_POST['age'];
         $_SESSION['gender'] = $_POST['gender'];
         $_SESSION['phone'] = $_POST['phone'];
-        header('location: profile.html');
+        header('location: profile');
     }
 
     // Display the Personal info page
@@ -65,6 +65,24 @@ $f3->route('GET|POST /profile', function () {
 });
 
 // interest page
+$f3->route('GET|POST /interest', function () {
+
+    /* If the form has been submitted, add the data to session
+    * and send the user to the next order form
+    */
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        //var_dump($_POST);
+        $_SESSION['interest'] = implode(", ", $_POST['interest']);
+
+        header('location: summary');
+    }
+
+    // Display the interest page
+    $view = new Template();
+    echo $view->render('views/interest.html');
+});
+
+// summary
 $f3->route('GET /summary', function () {
     // Display the summary page
     $view = new Template();
