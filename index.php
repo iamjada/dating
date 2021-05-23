@@ -14,6 +14,9 @@ session_start();
 
 // Require autoload file
 require_once('vendor/autoload.php');
+require_once('model/validation.php');
+require_once('model/data-layer.php');
+
 
 // instantiate fat-free
 $f3 = Base::instance();
@@ -28,7 +31,7 @@ $f3->route('GET /', function(){
 });
 
 // personal info
-$f3->route('GET|POST /personal', function () {
+$f3->route('GET|POST /personal', function ($f3) {
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         //var_dump($_POST);
@@ -37,6 +40,16 @@ $f3->route('GET|POST /personal', function () {
         $_SESSION['age'] = $_POST['age'];
         $_SESSION['gender'] = $_POST['gender'];
         $_SESSION['phone'] = $_POST['phone'];
+
+        //If name is valid, store data
+        //validate first name
+        if (validFName($_POST['fName'])) {
+            $_SESSION['fName'] = $_POST['fName'];
+        } //Otherwise, set an error variable in the hive
+        else {
+            $f3->set('errors["fName"]', 'Please enter a Name');
+        }
+
         header('location: profile');
     }
 
