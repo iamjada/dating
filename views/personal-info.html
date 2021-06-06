@@ -117,16 +117,14 @@
                 <label class="form-check-label" for="flexCheckDefault">
                     Sign me up for a Premium Account!
                 </label>
-
+                </div>
             <repeat group="{{ @premium }}" value="{{ @premium }}">
                 <label><input type="checkbox" name="premium"
                               id="{{ @premium }}" value="{{ @premium }}">
-
                     <check if="{{ @premium == @userPremium }}">
                         checked="checked"</check> {{ ucfirst(@premium) }}
                 </label>
             </repeat>
-            </div>
             </div>
         </div>
         <br>
