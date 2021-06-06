@@ -18,8 +18,13 @@ h2, h3 {
     height: 300px;
 }
 
-/* button */
+/* next button */
 #btn{
     width: 8.125em;
     height: 2.5em;
+}
+
+/* summary pic */
+.profile_pic{
+    width: 50%;
 }
