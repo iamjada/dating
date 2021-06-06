@@ -181,7 +181,4 @@ class Member
         return $this->_bio;
     }
 
-
-
-
 }

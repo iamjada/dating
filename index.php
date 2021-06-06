@@ -39,7 +39,7 @@ $f3->route('GET /', function(){
 });
 
 //personal-info.html
-$f3->route('GET|POST /profile', function ($f3) {
+$f3->route('GET|POST /profile1', function ($f3) {
 
     //Reinitialize a session array
     $_SESSION = array();
@@ -91,11 +91,19 @@ $f3->route('GET|POST /profile', function ($f3) {
         $_SESSION['gender'] = $_POST['gender'];
         $_SESSION['phone'] = $_POST['phone'];
 
-
         // no errors
         if (empty($f3->get('errors'))) {
-            header('location: profile2');
+
+            // check if user is premium member
+            if(isset($_POST['premium'])){
+                $_SESSION['member'] = new PremiumMember($userFName, $userLName, $userAge, $userGender, $userPhone);
+            } else{
+                $_SESSION['member'] = new Member($userFName, $userLName, $userAge, $userGender, $userPhone);
+            }
+            $f3->reroute('/profile2');
+            //header('location: profile2');
         }
+
     }
 
     //Get the data from the model
