@@ -2,29 +2,7 @@
 Jada Senebouttarath
 https://github.com/iamjada/dating
 -->
-<!-- header -->
-<!doctype html>
-<html lang="en">
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Javascript/CSS -->
-    <script defer src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-            crossorigin="anonymous"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
-            crossorigin="anonymous"></script>
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles/styles.css">
-
-    <title>My Dating</title>
-</head>
+<include href="views/header.html"></include>
 <body>
 <!-- nav -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -36,46 +14,54 @@ https://github.com/iamjada/dating
         </button>
     </div>
 </nav>
-<div class="container">
-    <div class="row">
-        <div class="col-6" id="left">
-            <h1 class="text-center">Welcome to My Dating</h1>
+<div class="container rounded border mt-4">
+    <div class="row column_row">
+        <div class="col">
+            <h2 class="text-center pt-5">Welcome to My Dating</h2>
             <p>Dating during a pandemic may be difficult. Try our dating
-                website and have dates online. Romantic Zoom dates can be fun!
-                At My Dating, you'll be matched with others who share similar interests.</p>
-        </div> <!-- end of col -->
-    </div> <!-- end of row -->
+                website and have dates online. Romantic dates over the internet can be fun!
+                At My Dating, you'll be matched with others who share similar interests. Be yourself and find love!</p>
 
-    <!--Quotes-->
-    <section>
-        <h5>Hear successful stories from users.</h5>
-            <hr>
+    <!-- stories/quotes-->
+    <h3 class="text-center pt-4 pb-2">Hear successful stories from users.</h3>
+    <div class="container border-top border-bottom pt-3 pb-1">
         <blockquote>
-            <i>"I met the love of my life online!"
-            - Joe</i>
+            <p>"I met the love of my life online!"
+            <i>- Joe Schmo</i>
+            </p>
+            <p>"I no longer feel alone during these trying times."
+                <i>- Anonymous User</i></p>
 
-            <br><i>"I no longer feel alone during these trying times."
-            - Anonymous</i>
-
-            <br><i>"It was easy to create a profile and meet others online"
-            - Jane</i>
+            <p>"It was easy to create a profile and meet others online"
+            <i>- Nev Schulman</i></p>
         </blockquote>
-            <hr>
-    </section>
+        <!--
+        <p class="font-italic">"I met the love of my life online!" -Joe Schmo</p>
+        <p class="font-italic">"I no longer feel alone during these trying times." -Anonymous User</p>
+        <p class="font-italic">"It was easy to create a profile and meet others online" -Nev Schulman</p>
+        -->
+    </div>
 
     <!-- button -->
-    <div class="text-center">
-        <a class="btn btn-primary btn-lg" id="personal" href="profile1" >Create a Profile!</a>
+    <div class="text-center pt-4">
+        <a class="btn btn-primary rounded" href="profile1">Create a Profile!</a>
     </div>
-    <br>
+</div>
 
-    <!-- image -->
-    <div class="row">
-        <div class="col-6" id="right">
-            <img class="rounded pull-right float-right" src="images/dating.jpeg" alt="pic of date">
-        </div>
-    </div> <!-- end of col -->
-
+<!--image -->
+<div class="col-6">
+    <img class="rounded date_img" src="images/dating.jpeg" alt="pic of date">
+</div>
+</div>
+<!-- image
+<div class="row">
+    <div class="col-6" id="right">
+        <img class="rounded pull-right float-right" src="images/dating.jpeg" alt="pic of date">
+    </div>
+</div>
+-->
+</div> <!-- end of col -->
+</div> <!-- end of row -->
 </div> <!-- end of container -->
 </body>
 </html>
