@@ -56,7 +56,7 @@
                 </check>
                 <!-- gender radio button -->
                 <h6>Gender</h6>
-                <repeat group="{{ @genders }}" value="{{ @gender }}">
+                <repeat group="{{ @gender }}" value="{{ @gender }}">
                     <label><input type="radio" name="gender"
                                   id="{{ @gender }}" value="{{ @gender }}">
                         <check if="{{ @gender == @userGender }}">

@@ -91,7 +91,21 @@
                         </select>
                     </div>
 
-                    <!--seeking -->
+                    <!-- seeking -->
+                    <div class="form-group">
+                        <label class="col-sm-2">Seeking</label>
+                        <div>
+                            <repeat group="{{ @seekGender }}" value="{{ @seeking }}">
+                                <label class="seeking"><input type="radio" name="seeking"
+                                                              id="{{ @seeking}}" value="{{ @seeking}}">
+                                    <check if="{{ @seeking == @userSeeking }}">
+                                        checked="checked"</check>
+                                    > {{ ucfirst(@seeking) }}
+                                </label>
+                            </repeat>
+                        </div>
+                    </div>
+                    <!--seeking
                     <div class="form-group">
                         <label class="col-sm-2">Seeking</label>
                     </div>
@@ -113,6 +127,7 @@
                     <label class="form-check-label" for="gOther">Other</label>
                 </div>
             </div>
+            -->
             <!-- bio -->
             <div class="col">
                 <div class="form-group">

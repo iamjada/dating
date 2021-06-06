@@ -43,60 +43,25 @@
             <div class="col">
                 <h6>In-door Interest</h6>
                     <div class="row mb-1">
-                        <repeat group="{{ @indoorints }}" value="{{ @indoorint }}">
-                            <label class="col-2"><input type="checkbox" name="indoor[]" value="{{ @indoorint }}"
-                            > {{ @indoorint }}</label>
+                        <repeat group="{{ @indoor }}" value="{{ @indoor }}">
+                            <label class="col-2"><input type="checkbox"
+                                                        name="indoor[]"
+                                                        value="{{ @indoor }}">
+                                {{ @indoorint }}</label>
                         </repeat>
                     </div>
                     <check if="{{ isset(@errors['indoor']) }}">
                         <span class="err">{{ @errors['indoor'] }}</span>
                     </check>
                 </div>
-                            <!--
-                            <div class="form-check form-check-inline col">
-                            <input class="form-check-input" type="checkbox" name="interest[]" id="tv" value="Tv">
-                            <label class="form-check-label" for="tv">Tv</label>
-                        </div>
-                        <div class="form-check form-check-inline col">
-                            <input class="form-check-input" type="checkbox" name="interest[]" id="movies" value="Movies">
-                            <label class="form-check-label" for="movies">Movies</label>
-                        </div>
-                        <div class="form-check form-check-inline col">
-                            <input class="form-check-input" type="checkbox" name="interest[]" id="cooking" value="Cooking">
-                            <label class="form-check-label" for="cooking">Cooking</label>
-                        </div>
-                        <div class="form-check form-check-inline col">
-                            <input class="form-check-input" type="checkbox" name="interest[]" id="board" value="Board Games">
-                            <label class="form-check-label" for="board">Board Games</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="form-check form-check-inline col">
-                            <input class="form-check-input" type="checkbox" name="interest[]" id="puzzles" value="Puzzles">
-                            <label class="form-check-label" for="puzzles">Puzzles</label>
-                        </div>
-                        <div class="form-check form-check-inline col">
-                            <input class="form-check-input" type="checkbox" name="interest[]" id="reading" value="Reading">
-                            <label class="form-check-label" for="reading">Reading</label>
-                        </div>
-                        <div class="form-check form-check-inline col">
-                            <input class="form-check-input" type="checkbox" name="interest[]" id="cards" value="Playing Cards">
-                            <label class="form-check-label" for="cards">Playing Cards</label>
-                        </div>
-                        <div class="form-check form-check-inline col">
-                            <input class="form-check-input" type="checkbox" name="interest[]" id="games" value="Video Games">
-                            <label class="form-check-label" for="games">Video Games</label>
-                        </div>
-                    </div>
-                     -->
                 <h6>Out-door Interest</h6>
                 <div class="container">
                     <div class="row mb-1">
-                        <repeat group="{{ @outdoorints }}" value="{{ @outdoorint }}">
+                        <repeat group="{{ @outdoor }}" value="{{ @outdoor}}">
                             <label class="col-2"><input type="checkbox"
                                                         name="outdoor[]"
-                                                        value="{{ @outdoorint }}"
-                            > {{ @outdoorint }}</label>
+                                                        value="{{ @outdoor }}">
+                                {{ @outdoorint }}</label>
                         </repeat>
                     </div>
                     <check if="{{ isset(@errors['outdoor']) }}">
