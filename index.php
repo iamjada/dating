@@ -39,7 +39,7 @@ $f3->route('GET /', function(){
 });
 
 //personal-info.html
-$f3->route('GET|POST /profile1', function ($f3) {
+$f3->route('GET|POST /profile', function ($f3) {
 
     //Reinitialize a session array
     $_SESSION = array();

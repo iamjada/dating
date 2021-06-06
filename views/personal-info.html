@@ -108,6 +108,26 @@
                         by others with your permission</p>
                 </div>
             </div>
+            <!-- premium membership -->
+
+            <div class="form-group">
+            <h6>Premium Membership</h6>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                    Sign me up for a Premium Account!
+                </label>
+
+            <repeat group="{{ @premium }}" value="{{ @premium }}">
+                <label><input type="checkbox" name="premium"
+                              id="{{ @premium }}" value="{{ @premium }}">
+
+                    <check if="{{ @premium == @userPremium }}">
+                        checked="checked"</check> {{ ucfirst(@premium) }}
+                </label>
+            </repeat>
+            </div>
+            </div>
         </div>
         <br>
         <!-- submit -->
